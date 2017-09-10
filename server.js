@@ -2,6 +2,7 @@ const express = require('express');
 const hbs=require('hbs');
 var app=express();
 hbs.registerPartials(__dirname+"/views/partials");
+const port=process.env.PORT||3000;
 app.set("view engiine",'hbs');
 app.use(express.static(__dirname+"/public"));
 app.get('/',(req,res)=>{
@@ -42,4 +43,7 @@ res.send({
      status:"not bad"
 });
 });
-app.listen(3000);
+app.listen(port,()=>{
+ console.log(`port number is ${port}`)
+
+});
